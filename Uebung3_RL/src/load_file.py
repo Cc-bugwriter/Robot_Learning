@@ -13,4 +13,4 @@ def load(path='data_ml', file='training_data.txt'):
     """
     local_path = os.getcwd()
     file_path = os.path.join(local_path, path, file)
-    return np.loadtxt(file_path, dtype=str)
+    return np.loadtxt(file_path, dtype=float)

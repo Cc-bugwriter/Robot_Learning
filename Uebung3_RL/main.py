@@ -1,5 +1,53 @@
-from src import load_file
+from src import load_file, linear_least_squares
+import numpy as np
+import math
+
+
+def task_c(data_training):
+    """
+    sub task c in 3.td assignment
+    :param data_training: array, [2 x n] training data set
+    :return None:
+    """
+    input_data = data_training[0, :].reshape(1, -1)
+    target_data = data_training[1, :].reshape(1, -1)
+
+    pred_x = np.linspace(start=0.0, stop=6.0, num=int(6 / 0.01) + 1).reshape(1, -1)
+    pred_y_lst = []
+
+    feature_lst = [2, 3, 9]
+    for feature in feature_lst:
+        theta = linear_least_squares.fitting(input_data, target_data, feature)
+        pred_y = linear_least_squares.prediction(pred_x, theta).reshape(1, -1)
+        pred_y_lst.append(pred_y)
+
+    linear_least_squares.visualisation(pred_x, pred_y_lst, feature_lst)
+
+
+def task_d(data_training):
+    """
+    sub task d in 3.td assignment
+    :param data_training: array, [2 x n] training data set
+    :return None:
+    """
+    input_data = data_training[0, :].reshape(1, -1)
+    target_data = data_training[1, :].reshape(1, -1)
+
+    feature_lst = np.linspace(start=1, stop=9, num=9)
+    rmse_lst = []
+    for feature in feature_lst:
+        theta = linear_least_squares.fitting(input_data, target_data, int(feature))
+        pred_y = linear_least_squares.prediction(input_data, theta).reshape(1, -1)
+        rmse = linear_least_squares.rmse(target_data, pred_y)
+        rmse_lst.append(rmse)
+
+    linear_least_squares.error_visualisation(rmse_lst, feature_lst)
 
 
 if __name__ == "__main__":
-    data = load_file.load()
+    data_training = load_file.load(file="training_data.txt")
+    data_validation = load_file.load(file="validation_data.txt")
+
+    task_c(data_training)
+
+    task_d(data_training)
