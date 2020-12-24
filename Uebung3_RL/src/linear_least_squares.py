@@ -119,3 +119,62 @@ def model_selection(error_lst_train, error_lst_val, feature_lst):
     error_visualisation(error_lst_val, feature_lst, label="validation error")
     plt.legend()
     plt.show()
+
+
+def cross_validation(input_data, target_data, feature_arr):
+    """
+    implement leave-one-out cross validation
+    :param input_data:      array [1 x n], vector x
+    :param target_data:     array [1 x n], vector y
+    :param feature_arr:     array [m, ], number of selective features
+    :return rmse_mean:      array [m, ], mean of the RMSE for the learned model
+            rmse_var:       array [m, ], variance of the RMSE for the learned model
+    """
+    # initial
+    rmse_mean = np.empty(feature_arr.shape)
+    rmse_var = np.empty(feature_arr.shape)
+
+    for i, feature in enumerate(feature_arr):
+        # initial intermediate variables
+        rmse_lst = []
+
+        for index_out in range(input_data.shape[1]):
+            # split data
+            input_data_rest = np.delete(input_data, (0, index_out)).reshape(1, -1)
+            target_data_rest = np.delete(target_data, (0, index_out)).reshape(1, -1)
+            input_data_out = np.array([input_data[0, index_out]]).reshape(1, -1)
+            target_data_out = np.array([target_data[0, index_out]]).reshape(1, -1)
+
+            # predict and compute rmse based on out data
+            theta_rest = fitting(input_data_rest, target_data_rest, int(feature))
+            pred_out = prediction(input_data_out, theta_rest)
+            rmse_out = rmse(target_data_out, pred_out)
+
+            rmse_lst.append(rmse_out)
+
+        rmse_arr = np.array(rmse_lst)
+
+        rmse_mean[i] = rmse_arr.mean()
+        rmse_var[i] = rmse_arr.var()
+
+    return rmse_mean, rmse_var
+
+
+def cv_visualization(rmse_mean, rmse_var, feature_arr):
+    """
+    visualise the mean and variance of each model error(RMSE) in single figure
+    :param rmse_mean:   array [m, ], mean of the RMSE for the learned model
+    :param rmse_var:    array [m, ], variance of the RMSE for the learned model
+    :param feature_arr: array [m, ], number of selective features
+    :return:
+    """
+    plt.figure()
+    line, = plt.plot(feature_arr, rmse_mean, linewidth=2, color='red')
+    area = plt.fill_between(feature_arr, rmse_mean + rmse_var, rmse_mean - rmse_var,
+                     color='green', alpha=0.2)
+    plt.title("mean/ variance of RMSE vs. features")
+    plt.xlabel("number of features")
+    plt.ylabel("RMSE")
+    plt.legend([line, area], ["mean", "variance"])
+    plt.grid(True)
+    plt.show()
