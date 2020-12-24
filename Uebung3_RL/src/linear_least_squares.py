@@ -84,17 +84,38 @@ def rmse(target_y, pred_y):
     return error
 
 
-def error_visualisation(error_lst, feature_lst):
+def error_visualisation(error_lst, feature_lst, label=None):
     """
     plot the error under defined feature size in single figure
     :param error_lst:   list,  [k x float] list of different root mean square errors
     :param feature_lst: list,  [k x int] list of different feature sizes
+    :param label: str,  the label of prediction result (default value: None)
     :return:
     """
-    plt.figure()
-    plt.plot(feature_lst, error_lst, linewidth=2)
+    if label is None:
+        plt.figure()
+        plt.plot(feature_lst, error_lst, linewidth=2)
+    else:
+        plt.plot(feature_lst, error_lst, linewidth=2, label=label)
     plt.title("RMSE vs. number of features")
     plt.xlabel("number of features")
     plt.ylabel("RMSE")
     plt.grid(True)
+
+    if label is None:
+        plt.show()
+
+
+def model_selection(error_lst_train, error_lst_val, feature_lst):
+    """
+    plot RMSE of training set and validation set in single figure
+    :param error_lst_train: list,  [k x float] list of different root mean square errors in tr
+    :param error_lst_val:   list,  [k x float] list of different root mean square errors
+    :param feature_lst:     list,  [k x int] list of different feature sizes
+    :return:
+    """
+    plt.figure()
+    error_visualisation(error_lst_train, feature_lst, label="training error")
+    error_visualisation(error_lst_val, feature_lst, label="validation error")
+    plt.legend()
     plt.show()
