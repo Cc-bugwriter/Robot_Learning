@@ -120,13 +120,13 @@ if __name__ == "__main__":
     pred_x = np.linspace(start=0.0, stop=6.0, num=int(6 / 0.01) + 1).reshape(1, -1)
 
     # assignment subtask
-    # task_c(input_data_train, target_data_train, pred_x)
-    #
-    # task_d(input_data_train, target_data_train, features)
-    #
-    # task_e(input_data_train, target_data_train, input_data_val, target_data_val, features)
-    #
-    # task_f(input_data_train, target_data_train, features)
+    task_c(input_data_train, target_data_train, pred_x)
+
+    task_d(input_data_train, target_data_train, features)
+
+    task_e(input_data_train, target_data_train, input_data_val, target_data_val, features)
+
+    task_f(input_data_train, target_data_train, features)
 
     task_h(input_data_train, target_data_train, input_data_val, target_data_val, pred_x)
 

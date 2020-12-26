@@ -58,7 +58,7 @@ def visualisation(pred_x, pred_y_lst, feature_lst):
     """
     plt.figure()
     for i, pred_y in enumerate(pred_y_lst):
-        plt.plot(pred_x.reshape(-1), pred_y.reshape(-1), label=feature_lst[i], linewidth=2)
+        plt.plot(pred_x.reshape(-1), pred_y.reshape(-1), label="features: {}".format(feature_lst[i]), linewidth=2)
     plt.title("resulting predictions with different features")
     plt.xlabel("input value")
     plt.ylabel("prediction value")
