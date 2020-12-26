@@ -171,10 +171,11 @@ def cv_visualization(rmse_mean, rmse_var, feature_arr):
     plt.figure()
     line, = plt.plot(feature_arr, rmse_mean, linewidth=2, color='red')
     area = plt.fill_between(feature_arr, rmse_mean + rmse_var, rmse_mean - rmse_var,
-                     color='green', alpha=0.2)
-    plt.title("mean/ variance of RMSE vs. features")
+                            color='green', alpha=0.2)
+    plt.title("mean/ variance of RMSE (LOO) vs. features")
     plt.xlabel("number of features")
-    plt.ylabel("RMSE")
+    plt.ylabel("RMSE of LOO")
     plt.legend([line, area], ["mean", "variance"])
     plt.grid(True)
     plt.show()
+
