@@ -82,3 +82,6 @@ def rmse(target_y, pred_y):
     error = np.sqrt(1/pred_y.shape[1] * np.sum(diff * diff))
 
     return error
+
+
+# def derivation():
