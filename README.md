@@ -42,3 +42,63 @@ Feedback
 1.2 c)  [11.0/12.0]   more plots than required
 
 1.2 d) [3.2/4.0]  more plots than required
+
+### assignments 02
+
+| Bewertung  | Bereich | Prozentsatz  | Durchschnitt |
+| ------------- | ------------- | ------------- | ------------- |
+| 20,00  | 0–20  | 100,00 % | 10,74 |
+
+Feedback
+
+a) [8.0/8.0]
+
+
+b) [4.0/4.0]
+
+
+c) [8.0/8.0]
+
+### assignments 03
+
+| Bewertung  | Bereich | Prozentsatz  | Durchschnitt |
+| ------------- | ------------- | ------------- | ------------- |
+| 31,50  | 0–35  | 90,00 % | 29,27 |
+
+Feedback
+
+f) -1 -1
+
+You should use std but not var
+
+Not enough information of model selection. (LOO compuationly expensive/suitable for small dataset)
+
+i) -1.5
+
+Copied wrong result of slide for normalization term
+
+### assignments 04
+
+| Bewertung  | Bereich | Prozentsatz  | Durchschnitt |
+| ------------- | ------------- | ------------- | ------------- |
+| 38,00  | 0–38  | 100,00 % | 18,87 |
+
+Feedback
+
+a)  2/2
+
+b)  2/2
+
+c)  12/12
+
+d)  3/3
+
+e)  3/3
+
+f)  3/3 
+
+g) 7/7 
+
+h) 2/2
+
+i) 4/4
