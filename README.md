@@ -102,3 +102,40 @@ g) 7/7
 h) 2/2
 
 i) 4/4
+
+### assignments 04
+
+| Bewertung  | Bereich | Prozentsatz  | Durchschnitt |
+| ------------- | ------------- | ------------- | ------------- |
+| 81,00  | 0–97  | 83,51 % | 75,82 |
+
+Feedback
+
+5.1
+a) 2/2
+b) 5/5
+c) 4/4
+d) 2/2
+e) 4/4
+f) 7/7
+g) 4/4
+
+5.2 24P
+
+d) -6
+
+Not right learned policy
+
+e) -4
+
+Not ritght assumption (reward + transition model)
+
+Not right alternative algorithm
+
+5.3 28P
+
+a) -2P wrong derivative of sigma
+
+5.4 1P
+
+should be action/parameter based space
